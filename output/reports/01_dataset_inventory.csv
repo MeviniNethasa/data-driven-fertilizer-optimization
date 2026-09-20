@@ -1,0 +1,9 @@
+"Metric","Value"
+"Rows",10000
+"Columns",17
+"Primary target variables",3
+"Soil predictor variables",5
+"Weather predictor variables",2
+"Geographical variables",2
+"Seasonal variables",1
+"Total missing cells",3488

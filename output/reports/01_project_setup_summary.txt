@@ -1,0 +1,52 @@
+==========================================================================
+IT3081 STATISTICAL MODELLING
+DATA-DRIVEN PRECISION FERTILIZER ADVISORY & STRATEGIC AGRICULTURE FRAMEWORK
+TASK 1: PROBLEM UNDERSTANDING & PROJECT SETUP
+==========================================================================
+
+Project: Data-Driven Precision Fertilizer Advisory & Strategic Agriculture Framework
+Module: IT3081 Statistical Modelling
+Primary technology: R
+Input dataset: Fertilizer_Dataset.csv
+
+1. INDUSTRY CONTEXT
+Agriculture and fertilizer optimization in Sri Lanka.
+
+2. BUSINESS PROBLEM
+Generalized fertilizer recommendations can contribute to soil degradation, unnecessary fertilizer expenditure, and volatile crop yields. The consultancy therefore evaluates soil parameters, geographical zones, and weather factors to support statistically informed fertilizer advisory recommendations.
+
+3. CONSULTANCY GOAL
+Operate as an independent Statistical Innovation Consultancy that provides rigorous statistical inference, predictive modelling, and strategic decision-support evidence for agricultural stakeholders.
+
+4. PRIMARY TARGET OUTCOMES
+Urea_kg_ha, TSP_kg_ha, MOP_kg_ha
+
+5. CORE SOIL PREDICTORS
+Soil_pH, Total_N_percent, Available_P_mgkg, Available_K_mgkg, Organic_Carbon_percent
+
+6. WEATHER PREDICTORS
+Rainfall_30d_mm, Temperature_mean_C
+
+7. GEOGRAPHICAL / SEASONAL DIMENSIONS
+District, Agro_Zone, Season
+
+8. DATASET STRUCTURE
+Rows: 10000
+Columns: 17
+Total missing cells: 3488
+Overall missing-cell percentage: 2.05 %
+
+9. IMPORTANT DATA INTERPRETATION NOTE
+The dataset contains both reference recommended nutrient-rate variables and primary fertilizer recommendation variables (Urea, TSP and MOP). Their exact causal/derivation relationship is not established by Task 1 alone and should be investigated in later EDA and modelling tasks rather than assumed.
+
+10. STATISTICAL WORKFLOW
+The project follows the PRD roadmap from data quality and EDA through statistical inference, predictive modelling, experimental-design evaluation, PCA, Bayesian methods, time-series extensions and strategic decision support.
+
+11. REPRODUCIBILITY
+All project scripts should use project-relative paths.
+Input data should remain in the project root unless the project structure is explicitly changed.
+Generated figures belong in output/figures/ and reports/tables belong in output/reports/.
+
+==========================================================================
+END OF TASK 1 SETUP REPORT
+==========================================================================

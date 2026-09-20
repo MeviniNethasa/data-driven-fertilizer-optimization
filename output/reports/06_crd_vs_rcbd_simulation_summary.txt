@@ -1,0 +1,32 @@
+TASK 6 - CRD VS RCBD SIMULATION SUMMARY
+========================================
+
+Simulation seed: 123
+Treatments: 4
+Blocks: 6
+Total plots: 24
+Residual SD: 8
+
+CRD
+---
+Treatment F-statistic: 2.5962
+Treatment p-value: 0.0808604
+Residual MSE: 129.3611
+
+RCBD
+----
+Treatment F-statistic: 13.3048
+Treatment p-value: 0.00016744
+Block F-statistic: 17.4989
+Block p-value: 8.6963e-06
+Residual MSE: 25.2425
+
+Residual MSE reduction from CRD to RCBD: 80.49%
+Residual SS reduction from CRD to RCBD: 85.37%
+
+Interpretation:
+The simulation illustrates how a meaningful block effect can be
+separated from residual error under RCBD. The magnitude of the
+benefit depends on the strength of the nuisance gradient and the
+quality of the blocking strategy.
+

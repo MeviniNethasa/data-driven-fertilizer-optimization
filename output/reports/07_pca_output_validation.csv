@@ -1,0 +1,6 @@
+Output_File,Exists,Size_KB
+output/reports/07_pca_summary_metrics.csv,TRUE,7.62
+output/reports/07_pca_evaluation_report.md,TRUE,11.3
+output/figures/07_pca_scree_plot.png,TRUE,129.64
+output/figures/07_pca_biplot.png,TRUE,1747.08
+output/figures/07_pca_variable_loadings.png,TRUE,186.35

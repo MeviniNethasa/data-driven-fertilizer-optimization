@@ -1,0 +1,7 @@
+"Stakeholder","Information_Need","Project_Value"
+"Senior agricultural decision-makers","Evidence for strategic fertilizer planning and resource allocation.","Supports evidence-based agricultural planning."
+"Agronomists / agricultural domain experts","Statistically defensible relationships between soil, weather, location and fertilizer requirements.","Supports scientifically justified interpretation of statistical results."
+"Farmers / growers","Understandable fertilizer recommendations that account for field conditions.","Supports more site-specific fertilizer decision-making."
+"Agricultural advisory and extension teams","Decision-support evidence that can be translated into practical advisory guidance.","Provides a structured basis for advisory services."
+"Statistical modelling / data science team","Clean data, reproducible analysis, model diagnostics and measurable performance.","Provides reproducible statistical workflows."
+"Project / consultancy management","Clear risks, assumptions, limitations, recommendations and implementation roadmap.","Creates a documented consultancy framework for later dashboard/decision-engine development."

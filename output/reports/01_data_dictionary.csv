@@ -1,0 +1,18 @@
+"Variable","Role","Description","Data_Type","Missing_N","Missing_Percent","Unique_Values"
+"Sample_ID","Identifier","Unique sample identifier.","integer",0,0,10000
+"District","Categorical predictor","Administrative/geographical district associated with the sample.","character",0,0,25
+"Agro_Zone","Categorical predictor","Agro-ecological zone classification.","character",0,0,3
+"Season","Categorical predictor","Cultivation season; the PRD specifically identifies Maha and Yala as relevant seasonal categories.","character",0,0,2
+"Soil_pH","Continuous predictor","Soil pH measurement.","numeric",514,5.14,301
+"Total_N_percent","Continuous predictor","Total soil nitrogen, expressed as a percentage.","numeric",493,4.93,151
+"Available_P_mgkg","Continuous predictor","Available soil phosphorus, expressed in mg/kg.","numeric",518,5.18,151
+"Available_K_mgkg","Continuous predictor","Available soil potassium, expressed in mg/kg.","numeric",481,4.81,1093
+"Organic_Carbon_percent","Continuous predictor","Soil organic carbon, expressed as a percentage.","numeric",478,4.78,251
+"Rainfall_30d_mm","Continuous predictor","Rainfall accumulated over the preceding 30 days, expressed in mm.","numeric",511,5.11,3349
+"Temperature_mean_C","Continuous predictor","Mean temperature, expressed in degrees Celsius.","numeric",493,4.93,81
+"Recommended_N_kg_ha","Reference recommendation variable","Reference recommended nitrogen rate, expressed in kg/ha.","integer",0,0,3
+"Recommended_P2O5_kg_ha","Reference recommendation variable","Reference recommended phosphorus rate as P2O5, expressed in kg/ha.","integer",0,0,3
+"Recommended_K2O_kg_ha","Reference recommendation variable","Reference recommended potassium rate as K2O, expressed in kg/ha.","integer",0,0,3
+"Urea_kg_ha","Primary target variable","Urea fertilizer recommendation/rate, expressed in kg/ha.","numeric",0,0,953
+"TSP_kg_ha","Primary target variable","Triple superphosphate (TSP) fertilizer recommendation/rate, expressed in kg/ha.","numeric",0,0,394
+"MOP_kg_ha","Primary target variable","Muriate of potash (MOP) fertilizer recommendation/rate, expressed in kg/ha.","numeric",0,0,303

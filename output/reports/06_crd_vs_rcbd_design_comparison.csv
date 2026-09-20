@@ -1,0 +1,12 @@
+Criterion,CRD,RCBD
+Randomization,All experimental units randomized across treatments.,Treatments randomized independently within each block.
+Blocking,No explicit blocking factor.,Each block contains the complete treatment set.
+Primary assumption,Experimental units are reasonably homogeneous.,Units within a block are more homogeneous than units across blocks.
+Handling nuisance spatial variability,Poorer control when systematic gradients exist.,Explicitly accounts for block-level nuisance variation.
+Residual variance,May contain both treatment error and systematic field heterogeneity.,Can be lower when the blocking factor explains meaningful variability.
+Statistical efficiency,Can be efficient when the experimental area is homogeneous.,Often beneficial when field heterogeneity follows a recognizable gradient.
+Analysis complexity,Simple.,More complex than CRD.
+Missing plots,Generally comparatively straightforward.,Requires care because incomplete blocks can complicate analysis.
+Suitability for heterogeneous field,Less suitable.,More suitable when heterogeneity can be represented by blocks.
+Suitability for homogeneous field,Suitable.,May be unnecessary if blocks provide little variance reduction.
+Field implementation,Simple randomization and management.,"Requires field mapping, block construction and restricted randomization."

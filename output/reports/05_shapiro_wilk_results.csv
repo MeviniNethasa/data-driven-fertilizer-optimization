@@ -1,0 +1,4 @@
+target,test,statistic,p_value,n_tested,note
+Urea_kg_ha,Shapiro-Wilk,0.9951052742161788,5.905075151443889e-12,5000,Shapiro-Wilk test performed on a random sample of 5000 residuals.
+TSP_kg_ha,Shapiro-Wilk,0.9871991150049529,6.700567518355596e-21,5000,Shapiro-Wilk test performed on a random sample of 5000 residuals.
+MOP_kg_ha,Shapiro-Wilk,0.9729307146484664,9.232676627445505e-30,5000,Shapiro-Wilk test performed on a random sample of 5000 residuals.

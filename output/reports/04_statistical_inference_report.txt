@@ -1,0 +1,209 @@
+============================================================
+IT3081 STATISTICAL MODELLING
+TASK 4: STATISTICAL INFERENCE EVIDENCE
+============================================================
+
+Dataset: Fertilizer_Dataset.csv
+Significance level: alpha = 0.05
+Confidence level: 95%
+
+------------------------------------------------------------
+1. DATA CLEANING PRE-CHECK
+------------------------------------------------------------
+
+Original observations: 10000
+Exact duplicate rows detected: 0
+Exact duplicate rows removed: 0
+Observations remaining after duplicate removal: 10000
+
+Each hypothesis used complete observations for its required variables.
+This preserves valid degrees of freedom for each individual test.
+
+------------------------------------------------------------
+2. HYPOTHESIS 1 - ONE-WAY ANOVA: SOIL pH
+------------------------------------------------------------
+
+H0: Soil pH does not differ significantly across Agro-Ecological Zones.
+H1: At least one Agro-Ecological Zone has a different mean Soil pH.
+
+Test: One-Way ANOVA
+N = 9486
+F-statistic = 5336.629
+Degrees of freedom = (2, 9483)
+p-value = < 2.22e-16
+Eta-squared = 0.529526
+Decision at alpha = 0.05: Reject H0
+
+Interpretation:
+Eta-squared represents the proportion of total observed Soil pH variation attributable to Agro-Ecological Zone in this ANOVA model.
+The p-value determines whether the observed between-zone variation provides sufficient statistical evidence against the null hypothesis at the 5% significance level.
+
+------------------------------------------------------------
+3. HYPOTHESIS 2 - ONE-WAY ANOVA: AVAILABLE PHOSPHORUS
+------------------------------------------------------------
+
+H0: Available Phosphorus does not differ across Agro-Ecological Zones.
+H1: At least one Agro-Ecological Zone has a different mean Available Phosphorus.
+
+Test: One-Way ANOVA
+N = 9482
+F-statistic = 980.302
+Degrees of freedom = (2, 9479)
+p-value = < 2.22e-16
+Eta-squared = 0.171387
+Decision at alpha = 0.05: Reject H0
+
+Interpretation:
+Eta-squared represents the proportion of total observed Available Phosphorus variation attributable to Agro-Ecological Zone in this ANOVA model.
+The omnibus ANOVA tests whether all zone means can reasonably be treated as equal under the specified model.
+
+------------------------------------------------------------
+4. HYPOTHESIS 3 - WELCH TWO-SAMPLE T-TEST: TOTAL NITROGEN
+------------------------------------------------------------
+
+H0: Total Nitrogen levels are equal across Maha and Yala seasons.
+H1: Mean Total Nitrogen differs between Maha and Yala seasons.
+
+Test: Welch Two-Sample t-test
+N = 9507
+Maha n = 4763
+Yala n = 4744
+t-statistic = -0.459335
+Welch degrees of freedom = 9504.99
+p-value = 0.646004
+Mean difference (Maha - Yala) = 0.000408
+95% CI for mean difference = [-0.002151, 0.001334]
+Cohen's d = -0.009422
+Decision at alpha = 0.05: Fail to reject H0
+
+Interpretation:
+Welch's t-test does not assume equal population variances between Maha and Yala. The reported confidence interval describes the plausible range for the population mean difference (Maha - Yala) under the test assumptions.
+Cohen's d expresses the standardized difference between the two seasonal means.
+
+------------------------------------------------------------
+5. HYPOTHESIS 4 - LEVENE'S TEST: SOIL pH VARIANCE
+------------------------------------------------------------
+
+H0: Variances of Soil pH are equal across Agro-Ecological Zones.
+H1: At least one Agro-Ecological Zone has a different Soil pH variance.
+
+Test: Median-centered Levene's Test
+N = 9486
+F-statistic = 256.7675
+Degrees of freedom = (2, 9483)
+p-value = < 2.22e-16
+Decision at alpha = 0.05: Reject H0
+
+Interpretation:
+Levene's test evaluates whether the variability of Soil pH differs across Agro-Ecological Zones.
+The median-centered implementation is used because it provides a more robust assessment of variance homogeneity when distributions are not perfectly normal.
+
+------------------------------------------------------------
+6. 95% CONFIDENCE INTERVALS FOR GROUP MEANS
+------------------------------------------------------------
+
+H1 - Soil pH:
+# A tibble: 3 × 10
+  Agro_Zone       n  mean    sd      se ci_lower ci_upper median   min
+  <fct>       <int> <dbl> <dbl>   <dbl>    <dbl>    <dbl>  <dbl> <dbl>
+1 Dry          4578  6.50 0.581 0.00859     6.48     6.52   6.49   5.5
+2 Intermedia…  1896  6.01 0.462 0.0106      5.99     6.03   6      5.2
+3 Wet          3012  5.25 0.432 0.00788     5.24     5.27   5.26   4.5
+# ℹ 1 more variable: max <dbl>
+
+H2 - Available Phosphorus:
+# A tibble: 3 × 10
+  Agro_Zone        n  mean    sd     se ci_lower ci_upper median   min
+  <fct>        <int> <dbl> <dbl>  <dbl>    <dbl>    <dbl>  <dbl> <dbl>
+1 Dry           4580 10.0   2.91 0.0429     9.92    10.1    10       5
+2 Intermediate  1891 12.5   4.36 0.100     12.3     12.7    12.5     5
+3 Wet           3011  8.57  2.02 0.0368     8.50     8.64    8.6     5
+# ℹ 1 more variable: max <dbl>
+
+H3 - Welch t-test mean difference:
+# A tibble: 1 × 11
+  comparison  maha_mean yala_mean mean_difference ci_lower ci_upper
+  <chr>           <dbl>     <dbl>           <dbl>    <dbl>    <dbl>
+1 Maha - Yala     0.124     0.125        0.000408 -0.00215  0.00133
+# ℹ 5 more variables: confidence_level <dbl>, t_statistic <dbl>,
+#   degrees_of_freedom <dbl>, p_value <dbl>, cohens_d <dbl>
+
+------------------------------------------------------------
+7. STATISTICAL INTERPRETATION NOTES
+------------------------------------------------------------
+
+1. ANOVA tests whether the population means are equal across the specified Agro-Ecological Zone groups under the model assumptions.
+
+2. A statistically significant ANOVA result indicates that at least one group mean differs, but the omnibus ANOVA alone does not identify which specific pairs of groups differ.
+
+3. If pairwise zone comparisons are required for the consultancy, post-hoc procedures such as Tukey's HSD can be conducted as a follow-up analysis after a significant ANOVA.
+
+4. Welch's t-test was deliberately used for the seasonal comparison because it does not require equal population variances.
+
+5. Levene's test evaluates variance homogeneity. A non-significant result does not prove that all variances are identical; it indicates that the sample provides insufficient evidence of variance differences at the selected significance level.
+
+6. Statistical significance should be considered alongside effect sizes, confidence intervals, sample sizes, agricultural context, and practical relevance.
+
+------------------------------------------------------------
+8. GENERATED OUTPUTS
+------------------------------------------------------------
+
+Figures:
+- output/figures/04_anova_soil_ph.png
+- output/figures/04_anova_available_phosphorus.png
+- output/figures/04_ttest_nitrogen_season.png
+- output/figures/04_levene_soil_ph.png
+
+Reports:
+- output/reports/04_hypothesis_tests_summary.csv
+- output/reports/04_anova_group_confidence_intervals.csv
+- output/reports/04_ttest_confidence_interval.csv
+- output/reports/04_h1_soil_ph_group_confidence_intervals.csv
+- output/reports/04_h2_available_phosphorus_group_confidence_intervals.csv
+- output/reports/04_h4_soil_ph_variance_summary.csv
+- output/reports/04_hypothesis_definitions.csv
+- output/reports/04_statistical_inference_report.txt
+
+------------------------------------------------------------
+9. SESSION INFORMATION
+------------------------------------------------------------
+
+R version 4.5.1 (2025-06-13)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.7.7
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Asia/Colombo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods  
+[7] base     
+
+other attached packages:
+ [1] car_3.1-5       carData_3.0-6   lubridate_1.9.5 forcats_1.0.1  
+ [5] stringr_1.6.0   dplyr_1.2.1     purrr_1.2.2     readr_2.2.0    
+ [9] tidyr_1.3.2     tibble_3.3.1    ggplot2_4.0.3   tidyverse_2.0.0
+
+loaded via a namespace (and not attached):
+ [1] yulab.utils_0.2.5  rappdirs_0.3.4     utf8_1.2.6        
+ [4] generics_0.1.4     ggplotify_0.1.3    stringi_1.8.9     
+ [7] hms_1.1.4          digest_0.6.39      magrittr_2.0.5    
+[10] grid_4.5.1         timechange_0.4.0   RColorBrewer_1.1-3
+[13] Formula_1.2-6      scales_1.4.0       textshaping_1.0.5 
+[16] abind_1.4-8        cli_3.6.6          rlang_1.3.0       
+[19] crayon_1.5.3       bit64_4.8.6        withr_3.0.3       
+[22] tools_4.5.1        parallel_4.5.1     tzdb_0.5.0        
+[25] vctrs_0.7.3        R6_2.6.1           gridGraphics_0.5-1
+[28] lifecycle_1.0.5    fs_2.1.0           bit_4.6.0         
+[31] vroom_1.7.1        ragg_1.5.2         pkgconfig_2.0.3   
+[34] pillar_1.11.1      gtable_0.3.6       glue_1.8.1        
+[37] visdat_0.6.0       systemfonts_1.3.2  tidyselect_1.2.1  
+[40] rstudioapi_0.19.0  farver_2.1.2       labeling_0.4.3    
+[43] compiler_4.5.1     S7_0.2.2          

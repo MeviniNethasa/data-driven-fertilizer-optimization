@@ -1,0 +1,4 @@
+target,test,statistic,df,p_value,note
+Urea_kg_ha,Breusch-Pagan,45.07832094178629,32,0.06244571479128972,Breusch-Pagan test completed.
+TSP_kg_ha,Breusch-Pagan,93.98751934174496,32,5.2014871631287655e-8,Breusch-Pagan test completed.
+MOP_kg_ha,Breusch-Pagan,50.20209313811053,32,0.021313541946919205,Breusch-Pagan test completed.

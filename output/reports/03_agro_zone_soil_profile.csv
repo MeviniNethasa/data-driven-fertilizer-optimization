@@ -1,0 +1,16 @@
+"Agro_Zone","Variable","Mean_Value"
+"Dry","Soil_pH",6.49858453473132
+"Dry","Total_N_percent",0.124439013746454
+"Dry","Available_P_mgkg",10.0021615720524
+"Dry","Available_K_mgkg",80.109978308026
+"Dry","Organic_Carbon_percent",1.00564516129032
+"Intermediate","Soil_pH",6.01256856540084
+"Intermediate","Total_N_percent",0.123376582278481
+"Intermediate","Available_P_mgkg",12.5024854574299
+"Intermediate","Available_K_mgkg",89.5054670912951
+"Intermediate","Organic_Carbon_percent",1.50223911903513
+"Wet","Soil_pH",5.25056440903054
+"Wet","Total_N_percent",0.125430317040951
+"Wet","Available_P_mgkg",8.57200265692461
+"Wet","Available_K_mgkg",105.411702479339
+"Wet","Organic_Carbon_percent",2.25006937561943

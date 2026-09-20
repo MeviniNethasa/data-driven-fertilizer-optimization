@@ -1,0 +1,5 @@
+hypothesis_id,method,null_hypothesis,alternative_hypothesis
+H1,One-Way ANOVA,Soil pH does not differ significantly across Agro-Ecological Zones.,At least one Agro-Ecological Zone has a different mean Soil pH.
+H2,One-Way ANOVA,Available Phosphorus does not differ significantly across Agro-Ecological Zones.,At least one Agro-Ecological Zone has a different mean Available Phosphorus.
+H3,Welch Two-Sample t-test,Total Nitrogen levels are equal across Maha and Yala cultivation seasons.,Mean Total Nitrogen differs between Maha and Yala cultivation seasons.
+H4,Levene's Test,Variances of Soil pH are equal across Agro-Ecological Zones.,At least one Agro-Ecological Zone has a different Soil pH variance.

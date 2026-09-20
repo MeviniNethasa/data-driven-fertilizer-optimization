@@ -1,0 +1,7 @@
+Metric,Value
+Original numerical predictors,7
+Total principal components,7
+Components with eigenvalue > 1,2
+Components explaining >= 80% variance,4
+Components explaining >= 90% variance,6
+Components explaining >= 95% variance,6

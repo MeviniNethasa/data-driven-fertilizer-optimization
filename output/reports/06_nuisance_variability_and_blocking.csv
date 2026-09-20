@@ -1,0 +1,8 @@
+source,relevance_to_paddy_trials,possible_blocking_strategy
+Soil fertility gradient,Can influence nutrient availability and crop response independently of fertilizer treatment.,Block plots along a measured fertility gradient.
+Soil pH variation,"Can alter nutrient availability and fertilizer response, particularly phosphorus availability.",Create pH-based homogeneous blocks after baseline soil sampling.
+Moisture / drainage gradient,Unequal water availability can change nutrient uptake and crop growth.,Block across drainage or moisture zones.
+Agro-ecological differences,"Rainfall, temperature and soil conditions differ across agro-ecological environments.",Use separate trials or blocks within a clearly defined agro-ecological environment.
+Topographic or slope gradient,Elevation and slope can affect drainage and water retention.,Arrange blocks perpendicular to the dominant slope gradient.
+Field position / spatial variation,"Nearby plots may be more similar than distant plots, creating spatial dependence.",Use spatially coherent blocks and randomized treatment order within each block.
+Seasonal environmental variation,Maha and Yala seasons can expose treatments to different environmental conditions.,Treat season as a design factor or conduct repeated trials across seasons.

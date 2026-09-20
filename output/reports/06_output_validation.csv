@@ -1,0 +1,10 @@
+File,Exists,Size_KB
+output/reports/06_crd_vs_rcbd_simulation_results.csv,TRUE,0.47
+output/reports/06_crd_vs_rcbd_design_comparison.csv,TRUE,1.31
+output/reports/06_nuisance_variability_and_blocking.csv,TRUE,1.26
+output/reports/06_variance_decomposition.csv,TRUE,0.3
+output/reports/06_crd_vs_rcbd_power_simulation.csv,TRUE,0.53
+output/reports/06_simulated_rcbd_field_trial.csv,TRUE,1.38
+output/reports/06_experimental_design_evaluation.md,TRUE,19.16
+output/figures/06_crd_vs_rcbd_variance_decomposition.png,TRUE,491.8
+output/figures/06_crd_vs_rcbd_power_comparison.png,TRUE,183.22

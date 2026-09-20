@@ -1,0 +1,7 @@
+"Objective_ID","Objective","Success_Indicator"
+"OBJ01","Understand the structure and quality of the supplied fertilizer advisory dataset.","Reproducible project setup, validated input file and documented data dictionary."
+"OBJ02","Quantify relationships between soil properties, agro-ecological zones, seasons and weather factors.","Descriptive and inferential evidence identifies important agricultural patterns."
+"OBJ03","Test statistically meaningful differences across relevant agricultural groups.","Hypotheses are tested using appropriate statistical procedures and assumptions are assessed."
+"OBJ04","Develop and compare predictive statistical models for fertilizer recommendation outcomes.","Models are compared using out-of-sample performance and diagnostic evidence."
+"OBJ05","Evaluate experimental-design, dimensionality-reduction, Bayesian and time-dependent extensions.","Alternative methodologies are critically evaluated against project objectives."
+"OBJ06","Translate statistical findings into an interpretable precision-agriculture decision-support framework.","Findings can be communicated to agricultural and senior decision-making stakeholders."

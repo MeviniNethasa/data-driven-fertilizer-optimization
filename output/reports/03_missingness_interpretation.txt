@@ -1,0 +1,14 @@
+TASK 3 - MISSING VALUE ANALYSIS
+========================================
+
+Total observations: 10000
+Total variables: 17
+Total data cells: 170000
+Total missing values: 3488
+Overall missing percentage: 2.0518%
+
+Interpretation:
+Missing values are present and should be considered when
+interpreting descriptive statistics, correlations and models.
+Variable-level missingness is reported in:
+03_missing_by_variable.csv

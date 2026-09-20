@@ -1,0 +1,46 @@
+TASK 3 - INITIAL EDA INSIGHTS
+==============================================
+
+Dataset Overview
+-----------------
+Observations: 10000
+Variables: 17
+Duplicate rows: 0
+
+1. Missingness
+--------------
+Missing values were detected. The variable with the highest number of missing observations was Available_P_mgkg with 518 missing observations.
+
+2. IQR Outlier Detection
+------------------------
+Using the 1.5 × IQR rule, the highest number of statistical outlier observations was detected for Available_P_mgkg with 140 observations flagged (1.48% of valid observations).
+The IQR rule identifies observations that are statistically extreme relative to the distribution. These observations should not be automatically removed because extreme agricultural conditions may represent genuine field observations.
+
+3. Agro-Ecological Zone Distribution
+------------------------------------
+The largest agro-ecological-zone sample contains 4823 observations (Dry). The smallest zone contains 2000 observations (Intermediate).
+
+4. District Distribution
+------------------------
+The district with the largest number of observations is Batticaloa with 423 observations. The district with the smallest number is Gampaha with 368 observations.
+
+5. Soil pH Variation Across Agro-Zones
+--------------------------------------
+Among agro-ecological zones, the highest mean soil pH was observed in Dry (mean pH = 6.499), while the lowest mean soil pH was observed in Wet (mean pH = 5.251).
+
+6. Rainfall Variation Across Agro-Zones
+---------------------------------------
+Mean 30-day rainfall varied across agro-ecological zones. The highest mean rainfall was observed in Wet (299.63 mm), while the lowest was observed in Dry (135.71 mm).
+
+7. Correlation Analysis
+-----------------------
+Strongest absolute Pearson correlations with the main fertilizer outcomes were identified as follows:
+  - MOP_kg_ha vs Recommended_K2O_kg_ha: r = 0.993
+  - TSP_kg_ha vs Recommended_P2O5_kg_ha: r = 0.985
+  - Urea_kg_ha vs Recommended_N_kg_ha: r = 0.927
+
+Correlation measures statistical association and does not establish causation. The observed relationships should therefore be considered as exploratory evidence for subsequent statistical modelling.
+
+8. Next Statistical Steps
+-------------------------
+The descriptive patterns identified in Task 3 provide the basis for formal statistical inference in Task 4. In particular, observed differences between agro-ecological zones and other groups can be evaluated using the planned ANOVA, Welch two-sample t-tests and Levene's test procedures.

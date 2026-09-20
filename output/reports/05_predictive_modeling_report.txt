@@ -1,0 +1,246 @@
+============================================================
+IT3081 STATISTICAL MODELLING
+TASK 5: PREDICTIVE STATISTICAL MODELLING & DIAGNOSTICS
+============================================================
+
+Dataset: Fertilizer_Dataset.csv
+Train/Test Split: 80% / 20%
+Random Seed: 123
+Evaluation criterion for best model: Lowest test-set RMSE
+
+------------------------------------------------------------
+1. DATA PREPARATION
+------------------------------------------------------------
+
+Original rows: 10000
+Duplicate rows removed: 0
+Rows after duplicate removal: 10000
+
+Excluded identifier: Sample_ID
+Excluded potential leakage variables:
+  - Recommended_N_kg_ha
+  - Recommended_P2O5_kg_ha
+  - Recommended_K2O_kg_ha
+
+------------------------------------------------------------
+2. TEST-SET MODEL PERFORMANCE
+------------------------------------------------------------
+
+       target        model alpha    lambda n_test r_squared
+1   MOP_kg_ha        LASSO     1 0.1346866   1400 0.7958644
+2   MOP_kg_ha          MLR    NA        NA   1400 0.7937273
+3   MOP_kg_ha GLM_Gaussian    NA        NA   1400 0.7937273
+4   MOP_kg_ha        Ridge     0 2.0471162   1400 0.7880395
+5   TSP_kg_ha          MLR    NA        NA   1399 0.7984788
+6   TSP_kg_ha GLM_Gaussian    NA        NA   1399 0.7984788
+7   TSP_kg_ha        LASSO     1 0.2122823   1399 0.7981086
+8   TSP_kg_ha        Ridge     0 2.4407310   1399 0.7908616
+9  Urea_kg_ha        LASSO     1 0.2896904   1399 0.7484490
+10 Urea_kg_ha          MLR    NA        NA   1399 0.7476508
+11 Urea_kg_ha GLM_Gaussian    NA        NA   1399 0.7476508
+12 Urea_kg_ha        Ridge     0 2.5195792   1399 0.7441712
+   adjusted_r_squared     RMSE       MAE
+1           0.7907797 10.52552  9.046765
+2           0.7885894 10.58047  9.080840
+3           0.7885894 10.58047  9.080840
+4           0.7827599 10.72536  9.218428
+5           0.7934555 12.37689 10.284330
+6           0.7934555 12.37689 10.284330
+7           0.7930762 12.38825 10.299357
+8           0.7856484 12.60863 10.403895
+9           0.7421786 14.86513 12.253412
+10          0.7413606 14.88870 12.244565
+11          0.7413606 14.88870 12.244565
+12          0.7377942 14.99099 12.384744
+
+------------------------------------------------------------
+3. BEST MODEL BY TARGET USING TEST-SET RMSE
+------------------------------------------------------------
+
+      target model alpha    lambda n_test r_squared
+1  MOP_kg_ha LASSO     1 0.1346866   1400 0.7958644
+2  TSP_kg_ha   MLR    NA        NA   1399 0.7984788
+3 Urea_kg_ha LASSO     1 0.2896904   1399 0.7484490
+  adjusted_r_squared     RMSE       MAE
+1          0.7907797 10.52552  9.046765
+2          0.7934555 12.37689 10.284330
+3          0.7421786 14.86513 12.253412
+
+------------------------------------------------------------
+4. MLR DIAGNOSTICS
+------------------------------------------------------------
+
+
+Target: Urea_kg_ha
+
+Breusch-Pagan Test:
+# A tibble: 1 × 6
+  target     test          statistic    df p_value note               
+  <chr>      <chr>             <dbl> <dbl>   <dbl> <chr>              
+1 Urea_kg_ha Breusch-Pagan      45.1    32  0.0624 Breusch-Pagan test…
+
+Shapiro-Wilk Test:
+# A tibble: 1 × 6
+  target     test         statistic  p_value n_tested note            
+  <chr>      <chr>            <dbl>    <dbl>    <int> <chr>           
+1 Urea_kg_ha Shapiro-Wilk     0.995 5.91e-12     5000 Shapiro-Wilk te…
+
+VIF Results:
+# A tibble: 0 × 6
+# ℹ 6 variables: target <chr>, variable <chr>, VIF <dbl>, GVIF <dbl>,
+#   Df <dbl>, GVIF_adjusted <dbl>
+
+Target: TSP_kg_ha
+
+Breusch-Pagan Test:
+# A tibble: 1 × 6
+  target    test          statistic    df      p_value note           
+  <chr>     <chr>             <dbl> <dbl>        <dbl> <chr>          
+1 TSP_kg_ha Breusch-Pagan      94.0    32 0.0000000520 Breusch-Pagan …
+
+Shapiro-Wilk Test:
+# A tibble: 1 × 6
+  target    test         statistic  p_value n_tested note             
+  <chr>     <chr>            <dbl>    <dbl>    <int> <chr>            
+1 TSP_kg_ha Shapiro-Wilk     0.987 6.70e-21     5000 Shapiro-Wilk tes…
+
+VIF Results:
+# A tibble: 0 × 6
+# ℹ 6 variables: target <chr>, variable <chr>, VIF <dbl>, GVIF <dbl>,
+#   Df <dbl>, GVIF_adjusted <dbl>
+
+Target: MOP_kg_ha
+
+Breusch-Pagan Test:
+# A tibble: 1 × 6
+  target    test          statistic    df p_value note                
+  <chr>     <chr>             <dbl> <dbl>   <dbl> <chr>               
+1 MOP_kg_ha Breusch-Pagan      50.2    32  0.0213 Breusch-Pagan test …
+
+Shapiro-Wilk Test:
+# A tibble: 1 × 6
+  target    test         statistic  p_value n_tested note             
+  <chr>     <chr>            <dbl>    <dbl>    <int> <chr>            
+1 MOP_kg_ha Shapiro-Wilk     0.973 9.23e-30     5000 Shapiro-Wilk tes…
+
+VIF Results:
+# A tibble: 0 × 6
+# ℹ 6 variables: target <chr>, variable <chr>, VIF <dbl>, GVIF <dbl>,
+#   Df <dbl>, GVIF_adjusted <dbl>
+
+------------------------------------------------------------
+5. DIAGNOSTIC INTERPRETATION GUIDE
+------------------------------------------------------------
+
+R-squared:
+Measures the proportion of variation in the target variable explained by the predictors on the test set.
+
+Adjusted R-squared:
+Adjusts R-squared for the number of predictors relative to the number of test observations. It is useful when comparing models with different numbers of effective predictors.
+
+RMSE:
+Measures the square root of mean squared prediction error. Lower values indicate smaller prediction errors in the target's original units.
+
+MAE:
+Measures mean absolute prediction error. Lower values indicate smaller average absolute prediction errors.
+
+VIF:
+Large VIF values indicate stronger linear dependence among predictors. For categorical predictors, car::vif() may report generalized VIF (GVIF). The adjusted GVIF is reported as GVIF^(1/(2*Df)).
+
+Breusch-Pagan test:
+Tests the null hypothesis that the regression errors have constant variance. A small p-value provides evidence against homoscedasticity.
+
+Shapiro-Wilk test:
+Tests the null hypothesis that the tested residual sample is normally distributed. A small p-value provides evidence against normality. Because large datasets can make normality tests extremely sensitive, the Q-Q plot should also be considered when interpreting residual normality.
+
+------------------------------------------------------------
+6. CONSULTANCY INTERPRETATION
+------------------------------------------------------------
+
+The predictive modelling stage evaluates whether soil, weather and categorical agricultural context variables provide useful statistical information for predicting fertilizer application rates.
+
+The three fertilizer targets are modelled independently because Urea, TSP and MOP represent different fertilizer application quantities.
+
+The Recommendation variables were deliberately excluded because they are reference recommendation features and may contain information that would not be legitimately available when making an independent prediction. Their exclusion reduces the risk of target leakage.
+
+The final model comparison should be interpreted using the held-out 20% test data rather than training-set fit alone. The model selected using the lowest test-set RMSE is the best-performing model under this specific evaluation criterion and dataset split.
+
+Model performance should also be considered together with diagnostic evidence. High predictive accuracy does not automatically imply that the underlying statistical assumptions are satisfied.
+
+------------------------------------------------------------
+7. GENERATED FILES
+------------------------------------------------------------
+
+Figures:
+  output/figures/05_mlr_diagnostics_urea.png
+  output/figures/05_mlr_diagnostics_tsp.png
+  output/figures/05_mlr_diagnostics_mop.png
+  output/figures/05_predicted_vs_actual.png
+
+Reports:
+  output/reports/05_model_performance_comparison.csv
+  output/reports/05_best_model_by_target.csv
+  output/reports/05_model_performance_ranking.csv
+  output/reports/05_all_model_predictions.csv
+  output/reports/05_mlr_vif_results.csv
+  output/reports/05_breusch_pagan_results.csv
+  output/reports/05_shapiro_wilk_results.csv
+  output/reports/05_mlr_coefficients.csv
+  output/reports/05_ridge_lasso_coefficients.csv
+  output/reports/05_predictive_modeling_report.txt
+
+------------------------------------------------------------
+8. SESSION INFORMATION
+------------------------------------------------------------
+
+R version 4.5.1 (2025-06-13)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.7.7
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+time zone: Asia/Colombo
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods  
+[7] base     
+
+other attached packages:
+ [1] patchwork_1.3.2 glmnet_5.0      Matrix_1.7-3    lmtest_0.9-40  
+ [5] zoo_1.9-0       caret_7.0-1     lattice_0.22-7  car_3.1-5      
+ [9] carData_3.0-6   lubridate_1.9.5 forcats_1.0.1   stringr_1.6.0  
+[13] dplyr_1.2.1     purrr_1.2.2     readr_2.2.0     tidyr_1.3.2    
+[17] tibble_3.3.1    ggplot2_4.0.3   tidyverse_2.0.0
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.1     timeDate_4052.112    farver_2.1.2        
+ [4] S7_0.2.2             pROC_1.19.0.1        digest_0.6.39       
+ [7] rpart_4.1.24         timechange_0.4.0     lifecycle_1.0.5     
+[10] survival_3.8-3       magrittr_2.0.5       compiler_4.5.1      
+[13] rlang_1.3.0          tools_4.5.1          utf8_1.2.6          
+[16] data.table_1.18.6.1  labeling_0.4.3       bit_4.6.0           
+[19] plyr_1.8.9           RColorBrewer_1.1-3   abind_1.4-8         
+[22] withr_3.0.3          stats4_4.5.1         nnet_7.3-20         
+[25] grid_4.5.1           future_1.75.0        globals_0.19.1      
+[28] scales_1.4.0         iterators_1.0.14     MASS_7.3-65         
+[31] cli_3.6.6            crayon_1.5.3         ragg_1.5.2          
+[34] generics_0.1.4       rstudioapi_0.19.0    future.apply_1.20.2 
+[37] reshape2_1.4.5       tzdb_0.5.0           splines_4.5.1       
+[40] parallel_4.5.1       ggplotify_0.1.3      yulab.utils_0.2.5   
+[43] vctrs_0.7.3          hardhat_1.4.3        gridGraphics_0.5-1  
+[46] hms_1.1.4            bit64_4.8.6          visdat_0.6.0        
+[49] Formula_1.2-6        listenv_1.0.0        systemfonts_1.3.2   
+[52] foreach_1.5.2        gower_1.0.2          recipes_1.4.0       
+[55] glue_1.8.1           parallelly_1.48.0    codetools_0.2-20    
+[58] stringi_1.8.9        shape_1.4.6.1        gtable_0.3.6        
+[61] pillar_1.11.1        rappdirs_0.3.4       ipred_0.9-16        
+[64] lava_1.9.3           R6_2.6.1             textshaping_1.0.5   
+[67] vroom_1.7.1          class_7.3-23         Rcpp_1.1.2          
+[70] nlme_3.1-168         prodlim_2026.03.11   mgcv_1.9-3          
+[73] fs_2.1.0             pkgconfig_2.0.3      ModelMetrics_1.2.2.2
